@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HealthCheckActionController;
+use App\Shared\Infrastructure\Controllers\HealthCheckActionController;
 use Illuminate\Support\Facades\Route;
 
 /*
