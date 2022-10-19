@@ -1,0 +1,2 @@
+Как установить конкретную версию Node.js в образ alpine Docker?
+- https://medium.com/geekculture/how-to-install-a-specific-node-js-version-in-an-alpine-docker-image-3edc1c2c64be
