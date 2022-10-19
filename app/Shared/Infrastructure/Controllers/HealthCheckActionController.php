@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Shared\Infrastructure\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
