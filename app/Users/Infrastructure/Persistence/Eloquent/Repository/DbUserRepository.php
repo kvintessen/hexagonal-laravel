@@ -10,6 +10,7 @@ use App\Users\Domain\Repository\UserRepositoryInterface;
 use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
 use App\Users\Infrastructure\Persistence\Mapper\UserMapper;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 final class DbUserRepository implements UserRepositoryInterface
 {
@@ -17,9 +18,12 @@ final class DbUserRepository implements UserRepositoryInterface
         private readonly UserModel|Builder $model,
     ) {}
 
-    public function create($userData): void
+    public function create(UserEntity $userEntity): void
     {
-        $this->model->create($userData);
+        $userModel = UserMapper::mapToModel($userEntity);
+        DB::beginTransaction();
+        $userModel->save();
+        DB::commit();
     }
 
     public function getByUuid(UserEntityId $id): UserEntity

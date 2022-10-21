@@ -10,6 +10,6 @@ final class UuidService
 {
     public static function generate(): string
     {
-        return (string) Str::uuid();
+        return Str::uuid()->toString();
     }
 }

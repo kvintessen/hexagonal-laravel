@@ -7,11 +7,14 @@ namespace Tests\Unit\Users\Domain\Repository;
 use App\Users\Domain\Entity\UserEntity;
 use App\Users\Domain\Factory\UserEntityFactory;
 use App\Users\Domain\Repository\UserRepositoryInterface;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Tests\TestCase;
 
-class  UserRepositoryTest extends TestCase
+class UserRepositoryTest extends TestCase
 {
+    use RefreshDatabase;
+
     private UserEntityFactory $factory;
 
     protected function setUp(): void
@@ -26,12 +29,7 @@ class  UserRepositoryTest extends TestCase
         $repository = $this->mockUserRepository($userEntity);
 
         // act
-        $repository->create([
-            'id' => $userEntity->getUuid()->value(),
-            'login' => $userEntity->getLogin()->value(),
-            'email' => $userEntity->getEmail()->value(),
-            'password' => $userEntity->getPassword()->value(),
-        ]);
+        $repository->create($userEntity);
 
         // assert
         $existingUser = $repository->getByUuid($userEntity->getUuid());

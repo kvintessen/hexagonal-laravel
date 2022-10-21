@@ -9,7 +9,7 @@ use App\Users\Domain\Entity\UserEntityId;
 
 interface UserRepositoryInterface
 {
-    public function create(array $userData): void;
+    public function create(UserEntity $userEntity): void;
 
     public function getByUuid(UserEntityId $id): UserEntity;
 }
