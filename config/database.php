@@ -16,6 +16,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'migrations_path' => env('MIGRATIONS_PATH', 'app/Shared/Infrastructure/Database/Migrations'),
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +107,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations' => 'Migrations',
 
     /*
     |--------------------------------------------------------------------------

@@ -2,7 +2,14 @@
 
 namespace App\Shared\Infrastructure;
 
+use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
+use Illuminate\Auth\Middleware\Authorize;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
+use Illuminate\Auth\Middleware\RequirePassword;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Http\Middleware\SetCacheHeaders;
+use Illuminate\Routing\Middleware\ThrottleRequests;
+use Illuminate\Session\Middleware\AuthenticateSession;
 
 class Kernel extends HttpKernel
 {
@@ -54,14 +61,14 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
-        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'auth.basic' => AuthenticateWithBasicAuth::class,
+        'auth.session' => AuthenticateSession::class,
+        'cache.headers' => SetCacheHeaders::class,
+        'can' => Authorize::class,
         'guest' => Middleware\RedirectIfAuthenticated::class,
-        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'password.confirm' => RequirePassword::class,
         'signed' => Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'throttle' => ThrottleRequests::class,
+        'verified' => EnsureEmailIsVerified::class,
     ];
 }
