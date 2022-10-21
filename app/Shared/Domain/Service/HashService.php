@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 final class HashService
 {
-    public static function make(string $str): string
+    public static function make(string $value): string
     {
-        return Hash::make($str);
+        return Hash::make($value);
     }
 }

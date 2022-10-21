@@ -19,9 +19,4 @@ abstract class UuidValueObject
     {
         return $this->value;
     }
-
-    public function __toString(): string
-    {
-        return $this->value();
-    }
 }
