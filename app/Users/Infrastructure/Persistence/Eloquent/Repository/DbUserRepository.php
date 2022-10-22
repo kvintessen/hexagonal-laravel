@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Users\Infrastructure\Persistence\Eloquent\Repository;
 
 use App\Users\Domain\Entity\UserEntity;
+use App\Users\Domain\Entity\UserEntityEmail;
 use App\Users\Domain\Entity\UserEntityId;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
@@ -28,6 +29,17 @@ final class DbUserRepository implements UserRepositoryInterface
 
     public function getByUuid(UserEntityId $id): UserEntity
     {
-        return UserMapper::mapToDomain($this->model->where(['uuid' => $id->value()]));
+        return UserMapper::mapToDomain($this->model->where([UserModel::FIELD_UUID => $id->value()]));
+    }
+
+    public function getByEmail(UserEntityEmail $email): ?UserEntity
+    {
+        $userEntity = $this->model->where([UserModel::FIELD_EMAIL => $email->value()]);
+
+        if (!$userEntity) {
+            return null;
+        }
+
+        return UserMapper::mapToDomain($userEntity);
     }
 }
