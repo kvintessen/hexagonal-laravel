@@ -9,7 +9,7 @@ use App\Users\Domain\Entity\UserEntityId;
 use App\Users\Domain\Factory\UserEntityFactory;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 
-class CreateUserCommandHandler implements CommandHandlerInterface
+final class CreateUserCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
         private readonly UserRepositoryInterface $userRepository

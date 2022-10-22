@@ -6,7 +6,7 @@ namespace App\Shared\Infrastructure\Bus;
 
 use Throwable;
 
-class CommandNotRegistered extends InfrastructureException
+final class CommandNotRegistered extends InfrastructureException
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {

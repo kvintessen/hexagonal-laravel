@@ -6,7 +6,7 @@ namespace App\Users\Application\Query\GetByEmail;
 
 use App\Shared\Domain\Query\QueryInterface;
 
-class GetUserByEmailQuery implements QueryInterface
+final class GetUserByEmailQuery implements QueryInterface
 {
     public function __construct(public readonly string $email) {}
 }

@@ -7,7 +7,7 @@ namespace App\Users\Infrastructure\Persistence\Mapper;
 use App\Users\Domain\Entity\UserEntity;
 use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
 
-class UserMapper
+final class UserMapper
 {
     public static function mapToDomain(UserModel $userModel): UserEntity
     {
