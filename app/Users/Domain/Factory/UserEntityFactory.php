@@ -8,7 +8,7 @@ use App\Shared\Domain\Service\FakerService;
 use App\Users\Domain\Entity\UserEntity;
 use JetBrains\PhpStorm\ArrayShape;
 
-class UserEntityFactory
+final class UserEntityFactory
 {
     #[ArrayShape([
         'uuid'     => "string",

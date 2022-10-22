@@ -6,7 +6,7 @@ namespace App\Users\Application\Command\Create;
 
 use App\Shared\Domain\Command\CommandInterface;
 
-class CreateUserCommand implements CommandInterface
+final class CreateUserCommand implements CommandInterface
 {
     public function __construct(
         public readonly string $name,

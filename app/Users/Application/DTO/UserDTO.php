@@ -6,7 +6,7 @@ namespace App\Users\Application\DTO;
 
 use App\Users\Domain\Entity\UserEntity;
 
-class UserDTO
+final class UserDTO
 {
     public function __construct(
         public readonly string $uuid,

@@ -9,7 +9,7 @@ use App\Users\Application\DTO\UserDTO;
 use App\Users\Domain\Entity\UserEntityEmail;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 
-class GetUserByEmailQueryHandler implements QueryHandlerInterface
+final class GetUserByEmailQueryHandler implements QueryHandlerInterface
 {
     public function __construct(
         private readonly UserRepositoryInterface $userRepository,
