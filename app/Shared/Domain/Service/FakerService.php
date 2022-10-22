@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Shared\Domain\Service;
 
 use Illuminate\Support\Str;
@@ -12,9 +14,9 @@ final class FakerService
      * @uses safeEmail
      * @uses password
      */
-    public static function generate(string $type): string
+    public static function generate(string $type = null): string
     {
-        if (method_exists(__CLASS__, $type)) {
+        if ($type && method_exists(__CLASS__, $type)) {
             return self::$type();
         }
 

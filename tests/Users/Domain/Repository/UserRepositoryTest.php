@@ -2,30 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Users\Domain\Repository;
+namespace Tests\Users\Domain\Repository;
 
 use App\Users\Domain\Entity\UserEntity;
-use App\Users\Domain\Factory\UserEntityFactory;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Tests\TestCase;
+use Tests\Users\Domain\Entity\UserEntityMother;
 
 class UserRepositoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    private UserEntityFactory $factory;
-
-    protected function setUp(): void
-    {
-        $this->factory = app(UserEntityFactory::class);
-        parent::setUp();
-    }
-
     public function test_user_added_successfully(): void
     {
-        $userEntity = $this->factory->create();
+        $userEntity = UserEntityMother::create();
         $repository = $this->mockUserRepository($userEntity);
 
         // act

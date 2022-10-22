@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\ValueObject;
 
+use App\Shared\Domain\Service\UuidService;
+
 abstract class UuidValueObject
 {
     public function __construct(
@@ -18,5 +20,10 @@ abstract class UuidValueObject
     public function value(): string
     {
         return $this->value;
+    }
+
+    public static function random(): static
+    {
+        return new static(UuidService::generate());
     }
 }
