@@ -23,9 +23,9 @@ final class UserMapper
     {
         $user = new UserModel();
 
-        $user->uuid     = $userEntity->getUuid()->value();
-        $user->login    = $userEntity->getLogin()->value();
-        $user->email    = $userEntity->getEmail()->value();
+        $user->uuid = $userEntity->getUuid()->value();
+        $user->login = $userEntity->getLogin()->value();
+        $user->email = $userEntity->getEmail()->value();
         $user->password = $userEntity->getPassword()->value();
 
         return $user;

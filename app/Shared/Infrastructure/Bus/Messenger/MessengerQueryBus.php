@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Domain\Query\QueryBusInterface;
-use App\Shared\Domain\Query\QueryInterface;
-use App\Shared\Domain\Query\Response;
+use App\Shared\Application\Query\QueryBusInterface;
+use App\Shared\Application\Query\QueryInterface;
+use App\Shared\Application\Query\Response;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use App\Shared\Infrastructure\Bus\QueryNotRegistered;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
@@ -36,7 +36,7 @@ final class MessengerQueryBus implements QueryBusInterface
 
             return $stamp->getResult();
         } catch (NoHandlerForMessageException) {
-            throw new QueryNotRegistered("Query " . get_class($query) . " not registered.");
+            throw new QueryNotRegistered('Query ' . get_class($query) . ' not registered.');
         }
     }
 }

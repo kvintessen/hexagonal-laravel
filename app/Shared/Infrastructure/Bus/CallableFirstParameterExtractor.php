@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus;
 
-use App\Shared\Domain\Event\DomainEventSubscriber;
-use ReflectionClass;
-use ReflectionException;
-use ReflectionMethod;
+use App\Shared\Application\Event\DomainEventSubscriber;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionMethod;
 
 final class CallableFirstParameterExtractor
 {
@@ -24,14 +24,15 @@ final class CallableFirstParameterExtractor
         return reduce(self::pipedCallablesReducer(), $callables, []);
     }
 
-    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
+    private static function classExtractor(self $parameterExtractor): callable
     {
-        return static fn(callable $handler): ?string => $parameterExtractor->extract($handler);
+        return static fn (callable $handler): ?string => $parameterExtractor->extract($handler);
     }
 
     private static function pipedCallablesReducer(): callable
     {
-        return static function ($subscribers, DomainEventSubscriber $subscriber): array {
+        return static function ($subscribers, DomainEventSubscriber $subscriber): array
+        {
             $subscribedEvents = $subscriber::subscribedTo();
 
             foreach ($subscribedEvents as $subscribedEvent) {
@@ -44,7 +45,7 @@ final class CallableFirstParameterExtractor
 
     private static function unflatten(): callable
     {
-        return static fn($value) => [$value];
+        return static fn ($value) => [$value];
     }
 
     /**
@@ -53,7 +54,7 @@ final class CallableFirstParameterExtractor
     public function extract($class): ?string
     {
         $reflector = new ReflectionClass($class);
-        $method    = $reflector->getMethod('__invoke');
+        $method = $reflector->getMethod('__invoke');
 
         if ($this->hasOnlyOneParameter($method)) {
             return $this->firstParameterClassFrom($method);

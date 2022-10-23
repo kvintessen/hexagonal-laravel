@@ -11,10 +11,10 @@ use JetBrains\PhpStorm\ArrayShape;
 final class UserEntityFactory
 {
     #[ArrayShape([
-        'uuid'     => "string",
-        'login'    => "string",
-        'email'    => "string",
-        'password' => "string",
+        'uuid'     => 'string',
+        'login'    => 'string',
+        'email'    => 'string',
+        'password' => 'string',
     ])]
     public function create(): UserEntity
     {

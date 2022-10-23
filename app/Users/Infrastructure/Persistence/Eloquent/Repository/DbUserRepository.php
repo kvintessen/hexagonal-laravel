@@ -17,7 +17,8 @@ final class DbUserRepository implements UserRepositoryInterface
 {
     public function __construct(
         private readonly UserModel|Builder $model,
-    ) {}
+    ) {
+    }
 
     public function create(UserEntity $userEntity): void
     {

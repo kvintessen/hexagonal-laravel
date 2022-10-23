@@ -45,6 +45,7 @@ final class TodoController extends Controller
     public function show($id): JsonResponse
     {
         $todo = TodoModel::find($id);
+
         return response()->json([
             'status' => 'success',
             'todo' => $todo,

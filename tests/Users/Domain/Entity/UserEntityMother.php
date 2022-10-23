@@ -17,8 +17,7 @@ final class UserEntityMother
         ?UserEntityLogin $login = null,
         ?UserEntityEmail $email = null,
         ?UserEntityPassword $password = null
-    ): UserEntity
-    {
+    ): UserEntity {
         return UserEntity::fromPrimitives(
             $id?->value() ?? UserEntityIdMother::create()->value(),
             $login?->value() ?? UserEntityLoginMother::create()->value(),

@@ -12,7 +12,8 @@ final class UserDTO
         public readonly string $uuid,
         public readonly string $login,
         public readonly string $email
-    ) {}
+    ) {
+    }
 
     public static function fromEntity(UserEntity $userEntity): self
     {

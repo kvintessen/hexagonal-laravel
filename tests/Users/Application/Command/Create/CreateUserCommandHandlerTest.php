@@ -24,9 +24,9 @@ class CreateUserCommandHandlerTest extends UserModuleUnitTestCase
     {
         $userEntity = UserEntityMother::create();
         $command = CreateUserCommandMother::create(
-          $userEntity->getLogin(),
-          $userEntity->getEmail(),
-          $userEntity->getPassword()
+            $userEntity->getLogin(),
+            $userEntity->getEmail(),
+            $userEntity->getPassword()
         );
 
         $this->shouldNotGetByUuid($userEntity->getUuid());

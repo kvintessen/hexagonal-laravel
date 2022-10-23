@@ -1,2 +1,11 @@
 Как установить конкретную версию Node.js в образ alpine Docker?
 - https://medium.com/geekculture/how-to-install-a-specific-node-js-version-in-an-alpine-docker-image-3edc1c2c64be
+
+Запуск cs fixer
+- vendor/bin/php-cs-fixer fix --dry-run --diff
+
+Запуск deptrac
+- vendor/bin/deptrac --config-file=deptrac-layers.yaml
+
+Запуск PHPStan
+vendor/bin/phpstan analyse app tests
