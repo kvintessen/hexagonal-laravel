@@ -20,7 +20,7 @@ final class GetUserByEmailQueryHandler implements QueryHandlerInterface
         $email = UserEntityEmail::fromValue($query->email);
         $user = $this->userRepository->getByEmail($email);
 
-        if(!$user) {
+        if (!$user) {
             return null;
         }
 

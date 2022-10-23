@@ -11,6 +11,6 @@ final class UserEntityEmailMother
 {
     public static function create(?string $value = null): UserEntityEmail
     {
-        return UserEntityEmail::fromValue($value ?? FakerService::generate('safeEmail'));
+        return UserEntityEmail::fromValue($value ?? FakerService::generate('email'));
     }
 }
