@@ -10,8 +10,8 @@ final class FakerService
 {
     /**
      * @uses uuid
-     * @uses name
-     * @uses safeEmail
+     * @uses login
+     * @uses email
      * @uses password
      */
     public static function generate(string $type = null): string
@@ -28,18 +28,18 @@ final class FakerService
         return UuidService::generate();
     }
 
-    private static function name(): string
+    private static function login(): string
     {
-        return fake()->unique()->name();
+        return fake()->unique()->firstName();
     }
 
-    private static function safeEmail(): string
+    private static function email(): string
     {
         return fake()->unique()->safeEmail();
     }
 
     private static function password(): string
     {
-        return HashService::make(fake()->password());
+        return fake()->password();
     }
 }

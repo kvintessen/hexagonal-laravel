@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Users\Domain\Entity;
 
-final class UserEntity
+use App\Shared\Domain\Security\AuthUserInterface;
+
+final class UserEntity implements AuthUserInterface
 {
     public function __construct(
         private readonly UserEntityId       $uuid,
@@ -41,5 +43,22 @@ final class UserEntity
     public function getPassword(): UserEntityPassword
     {
         return $this->password;
+    }
+
+    public function getRoles(): array
+    {
+        return [
+            'ROLE_USER',
+        ];
+    }
+
+    public function eraseCredentials(): void
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->getEmail()->value();
     }
 }

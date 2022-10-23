@@ -20,8 +20,8 @@ final class UserEntityFactory
     {
         return UserEntity::fromPrimitives(
             FakerService::generate('uuid'),
-            FakerService::generate('name'),
-            FakerService::generate('safeEmail'),
+            FakerService::generate('login'),
+            FakerService::generate('email'),
             FakerService::generate('password'),
         );
     }
