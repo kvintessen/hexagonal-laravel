@@ -16,8 +16,7 @@ class CreateUserCommandMother
         ?UserEntityLogin $login = null,
         ?UserEntityEmail $email = null,
         ?UserEntityPassword $password = null,
-    ): CreateUserCommand
-    {
+    ): CreateUserCommand {
         $userEntity = UserEntityMother::create(login: $login, email: $email, password: $password);
 
         return new CreateUserCommand(

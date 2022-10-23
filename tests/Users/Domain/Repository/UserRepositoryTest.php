@@ -33,6 +33,7 @@ class UserRepositoryTest extends TestCase
         $mock = Mockery::mock(UserRepositoryInterface::class);
         $mock->shouldReceive('create')->andReturn($userEntity);
         $mock->shouldReceive('getByUuid')->andReturn($userEntity);
+
         return $this->app->instance(UserRepositoryInterface::class, $mock);
     }
 }

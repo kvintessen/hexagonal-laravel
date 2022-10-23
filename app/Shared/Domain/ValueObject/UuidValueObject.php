@@ -8,9 +8,10 @@ use App\Shared\Domain\Service\UuidService;
 
 abstract class UuidValueObject
 {
-    public function __construct(
+    final public function __construct(
         protected string $value,
-    ) {}
+    ) {
+    }
 
     public static function fromValue(string $value): static
     {

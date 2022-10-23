@@ -8,5 +8,4 @@ use App\Shared\Domain\ValueObject\UuidValueObject;
 
 final class UserEntityId extends UuidValueObject
 {
-
 }

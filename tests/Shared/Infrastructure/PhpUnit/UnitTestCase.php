@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Shared\Infrastructure\PhpUnit;
 
-use App\Shared\Domain\Command\CommandBusInterface;
-use App\Shared\Domain\Command\CommandInterface;
-use App\Shared\Domain\Query\QueryBusInterface;
-use App\Shared\Domain\Query\QueryInterface;
+use App\Shared\Application\Command\CommandBusInterface;
+use App\Shared\Application\Command\CommandInterface;
+use App\Shared\Application\Query\QueryBusInterface;
+use App\Shared\Application\Query\QueryInterface;
 use App\Users\Application\DTO\UserDTO;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;

@@ -1,0 +1,26 @@
+parameters:
+  paths:
+    - ./app
+  layers:
+    - name: Domain
+      collectors:
+        - type: directory
+          regex: /app/\w+/Domain/.*
+
+    - name: Application
+      collectors:
+        - type: directory
+          regex: /app/\w+/Application/.*
+
+    - name: Infrastructure
+      collectors:
+        - type: directory
+          regex: /app/\w+/Infrastructure/.*
+
+  ruleset:
+    Domain:
+    Application:
+      - Domain
+    Infrastructure:
+      - Domain
+      - Application

@@ -2,7 +2,6 @@
 
 namespace App\Shared\Infrastructure\Controllers;
 
-use App\Shared\Domain\Service\HashService;
 use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,7 +11,7 @@ final class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     public function login(Request $request): JsonResponse
@@ -40,9 +39,8 @@ final class AuthController extends Controller
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
-            ]
+            ],
         ]);
-
     }
 
     public function register(Request $request): JsonResponse
@@ -70,6 +68,7 @@ final class AuthController extends Controller
     public function logout(): JsonResponse
     {
         Auth::logout();
+
         return response()->json([
             'status' => 'success',
             'message' => 'Successfully logged out',
@@ -84,7 +83,7 @@ final class AuthController extends Controller
             'authorisation' => [
                 'token' => Auth::refresh(),
                 'type' => 'bearer',
-            ]
+            ],
         ]);
     }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Domain\Command\CommandBusInterface;
-use App\Shared\Domain\Command\CommandInterface;
+use App\Shared\Application\Command\CommandBusInterface;
+use App\Shared\Application\Command\CommandInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use App\Shared\Infrastructure\Bus\CommandNotRegistered;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
@@ -37,7 +37,7 @@ final class MessengerCommandBus implements CommandBusInterface
         try {
             $this->bus->dispatch($command)->with(new DispatchAfterCurrentBusStamp());
         } catch (NoHandlerForMessageException) {
-            throw new CommandNotRegistered("Command " . get_class($command) .  " not registered.");
+            throw new CommandNotRegistered('Command ' . get_class($command) . ' not registered.');
         } catch (HandlerFailedException $error) {
             throw $error->getPrevious() ?? $error;
         }

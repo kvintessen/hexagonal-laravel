@@ -8,7 +8,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('todos', static function (Blueprint $table) {
+        Schema::create('todos', static function (Blueprint $table)
+        {
             $table->id();
             $table->string('title');
             $table->string('description');

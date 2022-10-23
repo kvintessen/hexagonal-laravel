@@ -8,7 +8,8 @@ abstract class StringValueObject
 {
     public function __construct(
         protected string $value,
-    ) {}
+    ) {
+    }
 
     public static function fromValue(string $value): static
     {

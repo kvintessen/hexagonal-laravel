@@ -9,11 +9,12 @@ use App\Shared\Domain\Security\AuthUserInterface;
 final class UserEntity implements AuthUserInterface
 {
     public function __construct(
-        private readonly UserEntityId       $uuid,
-        private readonly UserEntityLogin    $login,
-        private readonly UserEntityEmail    $email,
+        private readonly UserEntityId $uuid,
+        private readonly UserEntityLogin $login,
+        private readonly UserEntityEmail $email,
         private readonly UserEntityPassword $password,
-    ) {}
+    ) {
+    }
 
     public static function fromPrimitives(string $uuid, string $login, string $email, string $password): self
     {
@@ -44,7 +45,10 @@ final class UserEntity implements AuthUserInterface
     {
         return $this->password;
     }
-
+    
+    /** 
+     * @return array<string> 
+     */
     public function getRoles(): array
     {
         return [
@@ -58,6 +62,21 @@ final class UserEntity implements AuthUserInterface
     }
 
     public function getUserIdentifier(): string
+    {
+        return $this->getEmail()->value();
+    }
+
+    public function uuid(): string
+    {
+        return $this->getUuid()->value();
+    }
+
+    public function login(): string
+    {
+        return $this->getLogin()->value();
+    }
+
+    public function email(): string
     {
         return $this->getEmail()->value();
     }
