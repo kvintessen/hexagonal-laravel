@@ -1,5 +1,7 @@
 <?php
 
+use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
+
 return [
 
     /*
@@ -68,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel::class,
+            'model' => UserModel::class,
         ],
 
         // 'users' => [

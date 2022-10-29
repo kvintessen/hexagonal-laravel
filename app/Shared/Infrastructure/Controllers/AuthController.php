@@ -2,15 +2,22 @@
 
 namespace App\Shared\Infrastructure\Controllers;
 
-use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
+use App\Shared\Application\Command\CommandBusInterface;
+use App\Shared\Application\Query\QueryBusInterface;
+use App\Shared\Infrastructure\Security\UserFetcher;
+use App\Users\Application\Command\Create\CreateUserCommand;
+use App\Users\Application\Query\GetByEmail\GetUserByEmailQuery;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 final class AuthController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct(
+        private readonly CommandBusInterface $commandBus,
+        private readonly QueryBusInterface $queryBus,
+        private readonly UserFetcher $userFetcher,
+    ) {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -24,6 +31,7 @@ final class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         $token = Auth::attempt($credentials);
+
         if (!$token) {
             return response()->json([
                 'status' => 'error',
@@ -31,7 +39,7 @@ final class AuthController extends Controller
             ], 401);
         }
 
-        $user = Auth::user();
+        $user = $this->userFetcher->getAuthUser()->toArray();
 
         return response()->json([
             'status' => 'success',
@@ -51,12 +59,17 @@ final class AuthController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
-        $user = UserModel::create([
-            'uuid'     => $request->get('uuid'),
-            'login'    => $request->get('login'),
-            'email'    => $request->get('email'),
-            'password' => $request->get('password'),
-        ]);
+        $this->commandBus->dispatch(
+            new CreateUserCommand(
+                $request->get('login'),
+                $request->get('email'),
+                $request->get('password'),
+            )
+        );
+
+        $user = $this->queryBus->ask(
+            new GetUserByEmailQuery($request->get('email'))
+        );
 
         return response()->json([
             'status' => 'success',
@@ -77,9 +90,11 @@ final class AuthController extends Controller
 
     public function refresh(): JsonResponse
     {
+        $user = $this->userFetcher->getAuthUser()->toArray();
+
         return response()->json([
             'status' => 'success',
-            'user' => Auth::user(),
+            'user' => $user,
             'authorisation' => [
                 'token' => Auth::refresh(),
                 'type' => 'bearer',

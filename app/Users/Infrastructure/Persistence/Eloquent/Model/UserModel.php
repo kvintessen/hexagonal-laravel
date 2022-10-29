@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Users\Infrastructure\Persistence\Eloquent\Model;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Shared\Domain\Service\HashService;
+use App\Shared\Infrastructure\Service\HashService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -62,7 +62,7 @@ final class UserModel extends Authenticatable implements JWTSubject
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: static fn ($value) => HashService::make($value),
+            set: static fn ($value) => (new HashService)->make($value),
         );
     }
 
