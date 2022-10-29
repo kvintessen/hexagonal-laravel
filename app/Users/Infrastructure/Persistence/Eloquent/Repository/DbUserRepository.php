@@ -10,13 +10,12 @@ use App\Users\Domain\Entity\UserEntityId;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 use App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel;
 use App\Users\Infrastructure\Persistence\Mapper\UserMapper;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 final class DbUserRepository implements UserRepositoryInterface
 {
     public function __construct(
-        private readonly UserModel|Builder $model,
+        private readonly UserModel $model,
     ) {
     }
 
@@ -30,17 +29,17 @@ final class DbUserRepository implements UserRepositoryInterface
 
     public function getByUuid(UserEntityId $id): UserEntity
     {
-        return UserMapper::mapToDomain($this->model->where([UserModel::FIELD_UUID => $id->value()]));
+        return UserMapper::mapToDomain($this->model->where([UserModel::FIELD_UUID => $id->value()]))->first();
     }
 
     public function getByEmail(UserEntityEmail $email): ?UserEntity
     {
-        $userEntity = $this->model->where([UserModel::FIELD_EMAIL => $email->value()]);
+        $userModel = $this->model->where([UserModel::FIELD_EMAIL => $email->value()])->firstOrFail();
 
-        if (!$userEntity) {
+        if (!$userModel) {
             return null;
         }
 
-        return UserMapper::mapToDomain($userEntity);
+        return UserMapper::mapToDomain($userModel);
     }
 }

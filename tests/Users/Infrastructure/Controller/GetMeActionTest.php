@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Users\Infrastructure\Controller;
 
 use JsonException;
@@ -15,7 +17,7 @@ class GetMeActionTest extends UserModuleUnitTestCase
     {
         $userEntity = UserEntityMother::create();
 
-        $this->withHeaders([
+        $registerResponse = $this->withHeaders([
         ])->post('/api/register', [
             'uuid'     => $userEntity->getUuid()->value(),
             'login'    => $userEntity->getLogin()->value(),
@@ -23,7 +25,7 @@ class GetMeActionTest extends UserModuleUnitTestCase
             'password' => $userEntity->getPassword()->value(),
         ]);
 
-        $response = $this->withHeaders([
+        $loginResponse = $this->withHeaders([
         ])->post('/api/login', [
             'email'    => $userEntity->getEmail()->value(),
             'password' => $userEntity->getPassword()->value(),
@@ -32,8 +34,8 @@ class GetMeActionTest extends UserModuleUnitTestCase
 
         ]);
 
-        $jsonResult = json_decode($response->content(), true, 512, JSON_THROW_ON_ERROR);
+        $jsonResult = json_decode($loginResponse->content(), false, 512, JSON_THROW_ON_ERROR);
 
-        $this->assertEquals($userEntity->getEmail()->value(), $jsonResult['user']['email']);
+        $this->assertEquals($userEntity->getEmail()->value(), $jsonResult->user->email);
     }
 }

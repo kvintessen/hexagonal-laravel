@@ -28,6 +28,9 @@ final class MessengerQueryBus implements QueryBusInterface
         ]);
     }
 
+    /**
+     * @throws QueryNotRegistered
+     */
     public function ask(QueryInterface $query): ?Response
     {
         try {

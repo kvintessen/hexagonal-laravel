@@ -8,17 +8,25 @@ use App\Shared\Application\Command\CommandHandlerInterface;
 use App\Users\Domain\Entity\UserEntityId;
 use App\Users\Domain\Factory\UserEntityFactory;
 use App\Users\Domain\Repository\UserRepositoryInterface;
+use App\Users\Domain\Service\UuidServiceInterface;
 
 final class CreateUserCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
-        private readonly UserRepositoryInterface $userRepository
+        private readonly UserRepositoryInterface $userRepository,
+        private readonly UserEntityFactory $userEntityFactory,
+        private readonly UuidServiceInterface $uuidService
     ) {
     }
 
     public function __invoke(CreateUserCommand $command): UserEntityId
     {
-        $userEntity = (new UserEntityFactory())->create();
+        $userEntity = $this->userEntityFactory->create(
+            $this->uuidService->generate(),
+            $command->login,
+            $command->email,
+            $command->password
+        );
         $this->userRepository->create($userEntity);
 
         return $userEntity->getUuid();

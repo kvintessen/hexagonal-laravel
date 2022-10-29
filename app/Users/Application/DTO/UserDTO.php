@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Users\Application\DTO;
 
+use App\Shared\Application\Query\Response;
 use App\Users\Domain\Entity\UserEntity;
 
-final class UserDTO
+final class UserDTO implements Response
 {
     public function __construct(
         public readonly string $uuid,

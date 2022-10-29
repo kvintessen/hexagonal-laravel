@@ -9,3 +9,6 @@
 
 Запуск PHPStan
 vendor/bin/phpstan analyse app tests
+
+
+composer dump-autoload
