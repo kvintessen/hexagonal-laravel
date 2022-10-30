@@ -10,5 +10,8 @@
 Запуск PHPStan
 vendor/bin/phpstan analyse app tests
 
-
 composer dump-autoload
+
+https://github.com/barryvdh/laravel-ide-helper
+
+vendor/bin/phpunit tests --order-by=random --testsuite unit-tests

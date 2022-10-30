@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Users\Domain\Entity;
 
 use App\Shared\Domain\Security\AuthUserInterface;
-use JetBrains\PhpStorm\ArrayShape;
 
 final class UserEntity implements AuthUserInterface
 {
@@ -57,19 +56,14 @@ final class UserEntity implements AuthUserInterface
         ];
     }
 
-    #[ArrayShape([
-        'uuid' => 'string',
-        'login' => 'string',
-        'email' => 'string',
-    ])]
- public function toArray(): array
- {
-     return [
-         'uuid' => $this->uuid(),
-         'login' => $this->login(),
-         'email' => $this->email(),
-     ];
- }
+     public function toArray(): array
+     {
+         return [
+             'uuid' => $this->uuid(),
+             'login' => $this->login(),
+             'email' => $this->email(),
+         ];
+     }
 
     public function eraseCredentials(): void
     {

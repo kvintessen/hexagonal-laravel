@@ -2,11 +2,8 @@
 
 namespace App\Shared\Infrastructure\Controllers;
 
-use App\Shared\Application\Command\CommandBusInterface;
-use App\Shared\Application\Query\QueryBusInterface;
 use App\Shared\Infrastructure\Security\UserFetcher;
-use App\Users\Application\Command\Create\CreateUserCommand;
-use App\Users\Application\Query\GetByEmail\GetUserByEmailQuery;
+use App\Users\Infrastructure\Adapter\UserAdapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +11,7 @@ use Illuminate\Support\Facades\Auth;
 final class AuthController extends Controller
 {
     public function __construct(
-        private readonly CommandBusInterface $commandBus,
-        private readonly QueryBusInterface $queryBus,
+        private readonly UserAdapter $userAdapter,
         private readonly UserFetcher $userFetcher,
     ) {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
@@ -39,11 +35,11 @@ final class AuthController extends Controller
             ], 401);
         }
 
-        $user = $this->userFetcher->getAuthUser()->toArray();
+        $user = $this->userFetcher->getAuthUser();
 
         return response()->json([
             'status' => 'success',
-            'user' => $user,
+            'user' => $user->toArray(),
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
@@ -59,17 +55,13 @@ final class AuthController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
-        $this->commandBus->dispatch(
-            new CreateUserCommand(
-                $request->get('login'),
-                $request->get('email'),
-                $request->get('password'),
-            )
+        $this->userAdapter->create(
+            $request->get('login'),
+            $request->get('email'),
+            $request->get('password')
         );
 
-        $user = $this->queryBus->ask(
-            new GetUserByEmailQuery($request->get('email'))
-        );
+        $user = $this->userAdapter->getByUuid($request->get('email'));
 
         return response()->json([
             'status' => 'success',

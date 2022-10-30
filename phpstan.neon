@@ -10,6 +10,4 @@ parameters:
     		- tests/Users/Infrastructure/UserModuleUnitTestCase.php
     checkGenericClassInNonGenericObjectType: false
     checkMissingIterableValueType: false
-    ignoreErrors:
-       - '#PHPDoc tag @var#'
 

@@ -4,25 +4,51 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Persistence\Eloquent\Model;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Shared\Infrastructure\Service\HashService;
-use Carbon\Carbon;
+use Barryvdh\LaravelIdeHelper\Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\PersonalAccessToken;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 /**
- * @property int id
- * @property string uuid
- * @property string login
- * @property string email
- * @property string password
- * @property string email_verified_at
- * @property Carbon created_at
- * @property Carbon updated_at
+ * App\Users\Infrastructure\Persistence\Eloquent\Model\UserModel.
+ *
+ * @property int $id
+ * @property string $uuid
+ * @property string $login
+ * @property string $email
+ * @property Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
+ * @property-read Collection|PersonalAccessToken[] $tokens
+ * @property-read int|null $tokens_count
+ * @method static Builder|UserModel newModelQuery()
+ * @method static Builder|UserModel newQuery()
+ * @method static Builder|UserModel query()
+ * @method static Builder|UserModel whereCreatedAt($value)
+ * @method static Builder|UserModel whereEmail($value)
+ * @method static Builder|UserModel whereEmailVerifiedAt($value)
+ * @method static Builder|UserModel whereId($value)
+ * @method static Builder|UserModel whereLogin($value)
+ * @method static Builder|UserModel wherePassword($value)
+ * @method static Builder|UserModel whereRememberToken($value)
+ * @method static Builder|UserModel whereUpdatedAt($value)
+ * @method static Builder|UserModel whereUuid($value)
+ * @mixin Eloquent
+ * @mixin Builder
  */
 final class UserModel extends Authenticatable implements JWTSubject
 {
