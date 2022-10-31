@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Users\Domain\Entity;
 
-use App\Shared\Domain\Security\AuthUserInterface;
-
-final class UserEntity implements AuthUserInterface
+final class UserEntity
 {
     public function __construct(
         private readonly UserEntityId $uuid,
@@ -56,36 +54,12 @@ final class UserEntity implements AuthUserInterface
         ];
     }
 
-     public function toArray(): array
-     {
-         return [
-             'uuid' => $this->uuid(),
-             'login' => $this->login(),
-             'email' => $this->email(),
-         ];
-     }
-
     public function eraseCredentials(): void
     {
         // TODO: Implement eraseCredentials() method.
     }
 
     public function getUserIdentifier(): string
-    {
-        return $this->getEmail()->value();
-    }
-
-    public function uuid(): string
-    {
-        return $this->getUuid()->value();
-    }
-
-    public function login(): string
-    {
-        return $this->getLogin()->value();
-    }
-
-    public function email(): string
     {
         return $this->getEmail()->value();
     }

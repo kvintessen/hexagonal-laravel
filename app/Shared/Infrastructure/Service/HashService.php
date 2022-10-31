@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Service;
 
-use App\Users\Domain\Service\HashServiceInterface;
+use App\Shared\Domain\Service\HashServiceInterface;
 
 final class HashService implements HashServiceInterface
 {
-    public function make(string $value): string
+    public function hash(string $value): string
     {
         return bcrypt($value);
     }

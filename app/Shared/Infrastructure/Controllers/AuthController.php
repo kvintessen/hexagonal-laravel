@@ -2,7 +2,6 @@
 
 namespace App\Shared\Infrastructure\Controllers;
 
-use App\Shared\Infrastructure\Security\UserFetcher;
 use App\Users\Infrastructure\Adapter\UserAdapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -11,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 final class AuthController extends Controller
 {
     public function __construct(
-        private readonly UserAdapter $userAdapter,
-        private readonly UserFetcher $userFetcher,
+        private readonly UserAdapter $userAdapter
     ) {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
@@ -35,11 +33,11 @@ final class AuthController extends Controller
             ], 401);
         }
 
-        $user = $this->userFetcher->getAuthUser();
+        $user = Auth::user();
 
         return response()->json([
             'status' => 'success',
-            'user' => $user->toArray(),
+            'user' => $user,
             'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
@@ -82,7 +80,7 @@ final class AuthController extends Controller
 
     public function refresh(): JsonResponse
     {
-        $user = $this->userFetcher->getAuthUser()->toArray();
+        $user = Auth::user();
 
         return response()->json([
             'status' => 'success',

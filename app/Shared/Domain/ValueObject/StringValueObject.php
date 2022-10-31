@@ -6,7 +6,7 @@ namespace App\Shared\Domain\ValueObject;
 
 abstract class StringValueObject
 {
-    final public function __construct(
+    public function __construct(
         protected string $value,
     ) {
     }
@@ -21,8 +21,8 @@ abstract class StringValueObject
         return $this->value;
     }
 
-    public function __toString(): string
+    public static function random(string $type): static
     {
-        return $this->value();
+        return new static(fake()->unique()->$type());
     }
 }

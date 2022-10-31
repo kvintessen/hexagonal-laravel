@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Service;
 
-use App\Users\Domain\Service\FakerServiceInterface;
+use App\Shared\Domain\Service\FakerServiceInterface;
 use Illuminate\Support\Str;
 
 final class FakerService implements FakerServiceInterface
