@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Users\Application\Command\Create;
 
 use App\Shared\Application\Command\CommandHandlerInterface;
+use App\Shared\Domain\Service\UuidServiceInterface;
 use App\Users\Domain\Entity\UserEntityId;
 use App\Users\Domain\Factory\UserEntityFactory;
 use App\Users\Domain\Repository\UserRepositoryInterface;
-use App\Users\Domain\Service\UuidServiceInterface;
 
 final class CreateUserCommandHandler implements CommandHandlerInterface
 {

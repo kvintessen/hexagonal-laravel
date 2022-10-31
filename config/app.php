@@ -6,6 +6,7 @@ use App\Providers\EventServiceProvider;
 use App\Providers\Repositories\Users\UserRepositoryServiceProvider;
 use App\Providers\RouteServiceProvider;
 use App\Providers\User\UserServiceProvider;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -202,6 +203,7 @@ return [
         EventServiceProvider::class,
         RouteServiceProvider::class,
         UserServiceProvider::class,
+        IdeHelperServiceProvider::class,
 
         /*
          * Repositories

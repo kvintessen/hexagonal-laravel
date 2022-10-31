@@ -6,7 +6,7 @@ namespace App\Shared\Domain\ValueObject;
 
 abstract class UuidValueObject
 {
-    final public function __construct(
+    public function __construct(
         protected string $value,
     ) {
     }
@@ -19,5 +19,10 @@ abstract class UuidValueObject
     public function value(): string
     {
         return $this->value;
+    }
+
+    public static function random(): static
+    {
+        return new static(fake()->unique()->uuid());
     }
 }
