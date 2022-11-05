@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus;
 
-use App\Shared\Application\Event\DomainEventSubscriber;
+use App\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
+use ReflectionNamedType;
 
 final class CallableFirstParameterExtractor
 {
@@ -51,7 +52,7 @@ final class CallableFirstParameterExtractor
     /**
      * @throws ReflectionException
      */
-    public function extract($class): ?string
+    public function extract(callable $class): ?string
     {
         $reflector = new ReflectionClass($class);
         $method = $reflector->getMethod('__invoke');
@@ -63,9 +64,15 @@ final class CallableFirstParameterExtractor
         return null;
     }
 
-    private function firstParameterClassFrom(ReflectionMethod $method): string
+    private function firstParameterClassFrom(ReflectionMethod $method): ?string
     {
-        return $method->getParameters()[0]->getType()?->getName();
+        $returnType = $method->getParameters()[0]->getType();
+
+        if ($returnType instanceof ReflectionNamedType) {
+            return $returnType->getName();
+        }
+
+        return null;
     }
 
     private function hasOnlyOneParameter(ReflectionMethod $method): bool

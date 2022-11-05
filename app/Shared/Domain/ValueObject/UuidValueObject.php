@@ -7,7 +7,7 @@ namespace App\Shared\Domain\ValueObject;
 use App\Shared\Domain\Service\UuidService;
 use InvalidArgumentException;
 
-abstract class UuidValueObject
+class UuidValueObject
 {
     private string $value;
 

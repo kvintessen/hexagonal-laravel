@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Users\Application\DTO;
 
-use App\Shared\Application\Query\Response;
+use App\Shared\Domain\Bus\Query\Response;
 use App\Users\Domain\Entity\UserEntity;
 
 final class UserDTO implements Response

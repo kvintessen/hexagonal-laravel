@@ -11,8 +11,8 @@ namespace PHPSTORM_META {
     */
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -222,8 +222,8 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Container\Container::makeWith(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -433,8 +433,8 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::get(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -644,8 +644,8 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -855,8 +855,8 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -1066,8 +1066,8 @@ namespace PHPSTORM_META {
         ]));
     override(\App::get(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -1277,8 +1277,8 @@ namespace PHPSTORM_META {
         ]));
     override(\App::make(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -1488,8 +1488,8 @@ namespace PHPSTORM_META {
         ]));
     override(\App::makeWith(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -1699,8 +1699,8 @@ namespace PHPSTORM_META {
         ]));
     override(\app(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -1910,8 +1910,8 @@ namespace PHPSTORM_META {
         ]));
     override(\resolve(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
@@ -2121,8 +2121,8 @@ namespace PHPSTORM_META {
         ]));
     override(\Psr\Container\ContainerInterface::get(0), map([
         '' => '@',
-            'App\Shared\Application\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
-            'App\Shared\Application\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
+            'App\Shared\Domain\Bus\Command\CommandBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus::class,
+            'App\Shared\Domain\Bus\Query\QueryBusInterface' => \App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus::class,
             'App\Users\Domain\Repository\UserRepositoryInterface' => \App\Users\Infrastructure\Persistence\Eloquent\Repository\DbUserRepository::class,
             'App\Shared\Domain\Service\FakerServiceInterface' => \App\Shared\Domain\Service\FakerService::class,
             'App\Shared\Domain\Service\HashServiceInterface' => \App\Shared\Domain\Service\HashService::class,
