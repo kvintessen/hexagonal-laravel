@@ -31,7 +31,6 @@ class GetMeActionTest extends UserModuleUnitTestCase
             'password' => $userEntity->getPassword()->value(),
         ])->withHeaders([
             'Content-Type' => 'application/json',
-
         ]);
 
         $jsonResult = json_decode($loginResponse->content(), false, 512, JSON_THROW_ON_ERROR);

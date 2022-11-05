@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus\Messenger;
 
-use App\Shared\Application\Command\CommandBusInterface;
-use App\Shared\Application\Command\CommandInterface;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\Bus\Command\CommandInterface;
 use App\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use App\Shared\Infrastructure\Bus\CommandNotRegistered;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;

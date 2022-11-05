@@ -6,6 +6,7 @@ use App\Users\Infrastructure\Adapter\UserAdapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Routing\Annotation\Route;
 
 final class AuthController extends Controller
 {
@@ -15,6 +16,7 @@ final class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
+    #[Route('/api/login', name: 'login', methods: ['POST'])]
     public function login(Request $request): JsonResponse
     {
         $request->validate([
@@ -45,6 +47,7 @@ final class AuthController extends Controller
         ]);
     }
 
+    #[Route('/api/register', name: 'register', methods: ['POST'])]
     public function register(Request $request): JsonResponse
     {
         $request->validate([
@@ -68,6 +71,7 @@ final class AuthController extends Controller
         ]);
     }
 
+    #[Route('/api/logout', name: 'logout', methods: ['POST'])]
     public function logout(): JsonResponse
     {
         Auth::logout();
@@ -78,6 +82,7 @@ final class AuthController extends Controller
         ]);
     }
 
+    #[Route('/api/refresh', name: 'refresh', methods: ['POST'])]
     public function refresh(): JsonResponse
     {
         $user = Auth::user();

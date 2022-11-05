@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Users\Application\Command\Create;
 
-use App\Shared\Infrastructure\Service\UuidService;
 use App\Users\Application\Command\Create\CreateUserCommandHandler;
-use App\Users\Domain\Factory\UserEntityFactory;
 use Tests\Users\Domain\Entity\UserEntityMother;
 use Tests\Users\Infrastructure\UserModuleUnitTestCase;
 
@@ -19,8 +17,7 @@ class CreateUserCommandHandlerTest extends UserModuleUnitTestCase
         parent::setUp();
         $this->handler = new CreateUserCommandHandler(
             $this->repository(),
-            new UserEntityFactory(),
-            new UuidService()
+            $this->eventBus(),
         );
     }
 

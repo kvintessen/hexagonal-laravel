@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace Tests\Feature;
+
+use JsonException;
 use Tests\TestCase;
 
 class HealthCheckActionTest extends TestCase

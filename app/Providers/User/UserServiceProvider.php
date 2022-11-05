@@ -12,6 +12,7 @@ class UserServiceProvider extends ServiceProvider
 {
     public const QUERY_HANDLER_TAG = 'query_handler';
     public const COMMAND_HANDLER_TAG = 'command_handler';
+    public const EVENT_HANDLER_TAG = 'domain_event_subscriber';
 
     public function register(): void
     {

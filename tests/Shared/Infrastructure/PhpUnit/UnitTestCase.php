@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Shared\Infrastructure\PhpUnit;
 
-use App\Shared\Application\Command\CommandBusInterface;
-use App\Shared\Application\Command\CommandInterface;
-use App\Shared\Application\Query\QueryBusInterface;
-use App\Shared\Application\Query\QueryInterface;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\Bus\Command\CommandInterface;
+use App\Shared\Domain\Bus\Event\EventBusInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
+use App\Shared\Domain\Bus\Query\QueryInterface;
 use App\Users\Application\DTO\UserDTO;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;
@@ -20,6 +21,8 @@ abstract class UnitTestCase extends TestCase
     private $queryBusProphecy;
     private $commandBus;
     private $commandBusProphecy;
+    private $eventBus;
+    private $eventBusProphecy;
 
     protected function setUp(): void
     {
@@ -76,5 +79,15 @@ abstract class UnitTestCase extends TestCase
     {
         return $this->commandBusProphecy = $this->commandBusProphecy
             ?? $this->prophecy(CommandBusInterface::class);
+    }
+
+    protected function eventBus()
+    {
+        return $this->eventBus = $this->eventBus ?? $this->eventBusProphecy()->reveal();
+    }
+
+    protected function eventBusProphecy()
+    {
+        return $this->eventBusProphecy = $this->eventBusProphecy ?? $this->prophecy(EventBusInterface::class);
     }
 }

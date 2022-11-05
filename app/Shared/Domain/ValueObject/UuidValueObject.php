@@ -4,11 +4,17 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\ValueObject;
 
-abstract class UuidValueObject
+use App\Shared\Domain\Service\UuidService;
+use InvalidArgumentException;
+
+class UuidValueObject
 {
-    public function __construct(
-        protected string $value,
-    ) {
+    private string $value;
+
+    final public function __construct(string $value)
+    {
+        $this->assertIsValidUuid($value);
+        $this->value = $value;
     }
 
     public static function fromValue(string $value): static
@@ -23,6 +29,15 @@ abstract class UuidValueObject
 
     public static function random(): static
     {
-        return new static(fake()->unique()->uuid());
+        return new static(UuidService::generate());
+    }
+
+    private function assertIsValidUuid(string $id): void
+    {
+        if (!UuidService::isUuid($id)) {
+            throw new InvalidArgumentException(
+                sprintf('`<%s>` does not allow the value `<%s>`.', static::class, $id)
+            );
+        }
     }
 }

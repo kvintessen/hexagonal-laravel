@@ -5,16 +5,13 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Providers\User\UserServiceProvider;
-use App\Shared\Application\Command\CommandBusInterface;
-use App\Shared\Application\Query\QueryBusInterface;
-use App\Shared\Domain\Service\FakerServiceInterface;
-use App\Shared\Domain\Service\HashServiceInterface;
-use App\Shared\Domain\Service\UuidServiceInterface;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\Bus\Event\EventBusInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus;
+use App\Shared\Infrastructure\Bus\Messenger\MessengerEventBus;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus;
-use App\Shared\Infrastructure\Service\FakerService;
-use App\Shared\Infrastructure\Service\HashService;
-use App\Shared\Infrastructure\Service\UuidService;
+use App\Users\Application\Subscriber\SomethingWithCreatedUserSubscriber;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,18 +38,16 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            UuidServiceInterface::class,
-            UuidService::class
+            EventBusInterface::class,
+            function ($app)
+            {
+                return new MessengerEventBus($app->tagged(UserServiceProvider::EVENT_HANDLER_TAG));
+            }
         );
 
-        $this->app->bind(
-            HashServiceInterface::class,
-            HashService::class
-        );
-
-        $this->app->bind(
-            FakerServiceInterface::class,
-            FakerService::class
+        $this->app->tag(
+            SomethingWithCreatedUserSubscriber::class,
+            UserServiceProvider::EVENT_HANDLER_TAG
         );
     }
 

@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Users\Domain\Entity;
 
-final class UserEntity
+use App\Shared\Domain\Aggregate\AggregateRoot;
+use App\Users\Domain\Event\UserWasCreated;
+
+final class UserEntity extends AggregateRoot
 {
     public function __construct(
         private readonly UserEntityId $uuid,
@@ -22,6 +25,18 @@ final class UserEntity
             UserEntityEmail::fromValue($email),
             UserEntityPassword::fromValue($password),
         );
+    }
+
+    public static function create(
+        UserEntityId $id,
+        UserEntityLogin $login,
+        UserEntityEmail $email,
+        UserEntityPassword $password
+    ): self {
+        $user = new self($id, $login, $email, $password);
+        $user->record(new UserWasCreated($id->value(), $login->value(), $email->value()));
+
+        return $user;
     }
 
     public function getUuid(): UserEntityId

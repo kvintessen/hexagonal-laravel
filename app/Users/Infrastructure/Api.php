@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure;
 
-use App\Shared\Application\Command\CommandBusInterface;
-use App\Shared\Application\Query\QueryBusInterface;
-use App\Shared\Application\Query\Response;
+use App\Shared\Domain\Bus\Command\CommandBusInterface;
+use App\Shared\Domain\Bus\Query\QueryBusInterface;
+use App\Shared\Domain\Bus\Query\Response;
 use App\Users\Application\Command\Create\CreateUserCommand;
 use App\Users\Application\Query\GetByEmail\GetUserByEmailQuery;
 
