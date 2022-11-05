@@ -12,4 +12,9 @@ final class UuidService
     {
         return Str::uuid()->toString();
     }
+
+    public static function isUuid(string $uuid): bool
+    {
+        return Str::isUuid($uuid);
+    }
 }
