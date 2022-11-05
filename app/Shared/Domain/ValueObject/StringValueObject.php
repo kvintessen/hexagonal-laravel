@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\ValueObject;
 
+use App\Shared\Domain\Service\FakerService;
+
 abstract class StringValueObject
 {
-    public function __construct(
+    final public function __construct(
         protected string $value,
     ) {
     }
@@ -23,6 +25,6 @@ abstract class StringValueObject
 
     public static function random(string $type): static
     {
-        return new static(fake()->unique()->$type());
+        return new static(FakerService::generate($type));
     }
 }

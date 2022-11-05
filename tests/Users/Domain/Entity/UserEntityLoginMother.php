@@ -10,6 +10,6 @@ final class UserEntityLoginMother
 {
     public static function create(?string $value = null): UserEntityLogin
     {
-        return UserEntityLogin::fromValue($value ?? UserEntityLogin::random('firstName')->value());
+        return UserEntityLogin::fromValue($value ?? UserEntityLogin::random('login')->value());
     }
 }

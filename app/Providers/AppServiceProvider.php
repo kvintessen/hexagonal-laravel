@@ -7,14 +7,8 @@ namespace App\Providers;
 use App\Providers\User\UserServiceProvider;
 use App\Shared\Application\Command\CommandBusInterface;
 use App\Shared\Application\Query\QueryBusInterface;
-use App\Shared\Domain\Service\FakerServiceInterface;
-use App\Shared\Domain\Service\HashServiceInterface;
-use App\Shared\Domain\Service\UuidServiceInterface;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerCommandBus;
 use App\Shared\Infrastructure\Bus\Messenger\MessengerQueryBus;
-use App\Shared\Infrastructure\Service\FakerService;
-use App\Shared\Infrastructure\Service\HashService;
-use App\Shared\Infrastructure\Service\UuidService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,21 +32,6 @@ class AppServiceProvider extends ServiceProvider
             {
                 return new MessengerCommandBus($app->tagged(UserServiceProvider::COMMAND_HANDLER_TAG));
             }
-        );
-
-        $this->app->bind(
-            UuidServiceInterface::class,
-            UuidService::class
-        );
-
-        $this->app->bind(
-            HashServiceInterface::class,
-            HashService::class
-        );
-
-        $this->app->bind(
-            FakerServiceInterface::class,
-            FakerService::class
         );
     }
 

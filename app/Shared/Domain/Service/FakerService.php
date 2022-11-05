@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Service;
+namespace App\Shared\Domain\Service;
 
-use App\Shared\Domain\Service\FakerServiceInterface;
 use Illuminate\Support\Str;
 
-final class FakerService implements FakerServiceInterface
+final class FakerService
 {
     /**
      * @uses uuid
@@ -15,31 +14,31 @@ final class FakerService implements FakerServiceInterface
      * @uses email
      * @uses password
      */
-    public function generate(string $type = null): string
+    public static function generate(string $type = null): string
     {
         if ($type && method_exists(__CLASS__, $type)) {
-            return $this->$type();
+            return self::$type();
         }
 
         return Str::random();
     }
 
-    public function uuid(): string
+    private static function uuid(): string
     {
         return fake()->unique()->uuid();
     }
 
-    public function login(): string
+    private static function login(): string
     {
         return fake()->unique()->firstName();
     }
 
-    public function email(): string
+    private static function email(): string
     {
         return fake()->unique()->safeEmail();
     }
 
-    public function password(): string
+    private static function password(): string
     {
         return fake()->password();
     }

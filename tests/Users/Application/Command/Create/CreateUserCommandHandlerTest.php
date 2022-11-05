@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Users\Application\Command\Create;
 
-use App\Shared\Infrastructure\Service\UuidService;
+use App\Shared\Domain\Service\UuidService;
 use App\Users\Application\Command\Create\CreateUserCommandHandler;
 use App\Users\Domain\Factory\UserEntityFactory;
 use Tests\Users\Domain\Entity\UserEntityMother;

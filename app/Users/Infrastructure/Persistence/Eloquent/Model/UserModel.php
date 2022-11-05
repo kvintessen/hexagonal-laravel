@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Persistence\Eloquent\Model;
 
-use App\Shared\Infrastructure\Service\HashService;
+use App\Shared\Domain\Service\HashService;
 use Barryvdh\LaravelIdeHelper\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -88,7 +88,7 @@ final class UserModel extends Authenticatable implements JWTSubject
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: static fn ($value) => (new HashService)->hash($value),
+            set: static fn ($value) => HashService::hash($value),
         );
     }
 
