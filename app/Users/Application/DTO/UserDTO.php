@@ -24,4 +24,13 @@ final class UserDTO implements Response
             $userEntity->getEmail()->value()
         );
     }
+
+    public function toArray(): array
+    {
+        return [
+            'uuid' => $this->uuid,
+            'login' => $this->login,
+            'email' => $this->email,
+        ];
+    }
 }

@@ -62,7 +62,7 @@ final class AuthController extends Controller
             $request->get('password')
         );
 
-        $user = $this->userAdapter->getByUuid($request->get('email'));
+        $user = $this->userAdapter->getByEmail($request->get('email'));
 
         return response()->json([
             'status' => 'success',
