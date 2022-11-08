@@ -15,6 +15,7 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
@@ -88,7 +89,13 @@ final class UserModel extends Authenticatable implements JWTSubject
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: static fn ($value) => HashService::hash($value),
+            set: static function ($value) {
+                if (Hash::check($value, HashService::hash($value))) {
+                    return $value;
+                }
+                
+                return HashService::hash($value);
+            },
         );
     }
 
