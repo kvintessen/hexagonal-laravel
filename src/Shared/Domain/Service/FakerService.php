@@ -26,7 +26,7 @@ final class FakerService
 
     private static function uuid(): string
     {
-        return Factory::create()->unique()->uuid(); 
+        return Factory::create()->unique()->uuid();
     }
 
     private static function login(): string
