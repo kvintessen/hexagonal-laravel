@@ -89,11 +89,12 @@ final class UserModel extends Authenticatable implements JWTSubject
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: static function ($value) {
+            set: static function ($value)
+            {
                 if (Hash::check($value, HashService::hash($value))) {
                     return $value;
                 }
-                
+
                 return HashService::hash($value);
             },
         );
