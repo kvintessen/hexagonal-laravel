@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
+        "dg/bypass-finals": "^1.4",
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^3.12",
         "laravel/pint": "^1.0",
@@ -23,38 +24,27 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "nunomaduro/larastan": "^2.2",
+        "orchestra/testbench": "^7.11",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5.10",
+        "phpunit/phpunit": "^9.5",
         "qossmic/deptrac-shim": "^0.24.0",
         "roave/security-advisories": "dev-latest",
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "app/Shared/Infrastructure/Database/Factories/",
-            "Database\\Seeders\\": "app/Shared/Infrastructure/Database/Seeders/"
+            "App\\": "src/",
+            "Apps\\LaravelApp\\": "apps/laravel-app/app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Apps\\LaravelApp\\Tests\\": "apps/laravel-app/tests/"
         }
     },
     "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ]
+
     },
     "extra": {
         "laravel": {

@@ -6,14 +6,22 @@ namespace Tests\Users\Domain\Repository;
 
 use App\Users\Domain\Entity\UserEntity;
 use App\Users\Domain\Repository\UserRepositoryInterface;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Mockery;
-use Tests\TestCase;
+use DG\BypassFinals;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Tests\Users\Domain\Entity\UserEntityMother;
 
 class UserRepositoryTest extends TestCase
 {
-    use RefreshDatabase;
+    public function setUp(): void
+    {
+        BypassFinals::setWhitelist([
+            '*/src/*',
+        ]);
+        BypassFinals::setCacheDirectory(__DIR__ . '/../../../../.cache');
+        BypassFinals::enable();
+        parent::setUp();
+    }
 
     public function test_user_added_successfully(): void
     {
@@ -28,12 +36,19 @@ class UserRepositoryTest extends TestCase
         $this->assertEquals($userEntity->getUuid()->value(), $existingUser->getUuid()->value());
     }
 
-    private function mockUserRepository(UserEntity $userEntity): UserRepositoryInterface
+    private function mockUserRepository(UserEntity $userEntity): UserRepositoryInterface|MockObject
     {
-        $mock = Mockery::mock(UserRepositoryInterface::class);
-        $mock->shouldReceive('create')->andReturn($userEntity);
-        $mock->shouldReceive('getByUuid')->andReturn($userEntity);
+        $repository = $this->createMock(UserRepositoryInterface::class);
 
-        return $this->app->instance(UserRepositoryInterface::class, $mock);
+        $repository->expects($this->once())
+            ->method('create')
+            ->with($userEntity);
+
+        $repository->expects($this->once())
+            ->method('getByUuid')
+            ->with($userEntity->getUuid())
+            ->willReturn($userEntity);
+
+        return $repository;
     }
 }

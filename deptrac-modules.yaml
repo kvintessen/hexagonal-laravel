@@ -1,21 +1,21 @@
 parameters:
   paths:
-    - ./app
+    - ./src
   exclude_files:
-    - '#.*\/app\/.*\/Infrastructure\/Adapter\/.*#'
+    - '#.*\/src\/.*\/Infrastructure\/Adapter\/.*#'
   layers:
     - name: Shared
       collectors:
         - type: directory
-          regex: /app/Shared/.*
+          regex: /src/Shared/.*
     - name: Users
       collectors:
         - type: directory
-          regex: /app/Users/.*
+          regex: /src/Users/.*
     - name: Recipes
       collectors:
         - type: directory
-          regex: /app/Recipes/.*
+          regex: /src/Recipes/.*
   ruleset:
     Users:
       - Shared

@@ -8,7 +8,7 @@
 - vendor/bin/deptrac --config-file=deptrac-layers.yaml
 
 Запуск PHPStan
-vendor/bin/phpstan analyse app tests
+vendor/bin/phpstan analyse apps/laravel-app/app tests src apps/laravel-app/tests
 
 composer dump-autoload
 

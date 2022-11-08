@@ -135,12 +135,13 @@ $rules = [
 
 $finder = Finder::create()
     ->in([
-        __DIR__ . '/app',
-        __DIR__ . '/config',
-        __DIR__ . '/app/Shared/Infrastructure/Database',
-        __DIR__ . '/resources',
-        __DIR__ . '/routes',
-        __DIR__ . '/tests',
+        __DIR__ . '/src',
+        __DIR__ . '/apps/laravel-app/app',
+        __DIR__ . '/apps/laravel-app/config',
+        __DIR__ . '/apps/laravel-app/database',
+        __DIR__ . '/apps/laravel-app/resources',
+        __DIR__ . '/apps/laravel-app/routes',
+        __DIR__ . '/apps/laravel-app/tests',
     ])
     ->name('*.php')
     ->notName('*.blade.php')
