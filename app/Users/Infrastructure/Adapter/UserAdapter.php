@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Users\Infrastructure\Adapter;
 
 use App\Shared\Domain\Bus\Query\Response;
+use App\Users\Application\DTO\UsersDTO;
 use App\Users\Infrastructure\Api;
 
 final class UserAdapter
@@ -18,8 +19,18 @@ final class UserAdapter
         $this->api->create($login, $email, $password);
     }
 
-    public function getByUuid(string $email): Response
+    public function getByEmail(string $email): Response
     {
-        return $this->api->getByUuid($email);
+        return $this->api->getByEmail($email);
+    }
+
+    public function search(
+        ?array $filters,
+        ?string $orderBy,
+        ?string $order,
+        ?int $limit,
+        ?int $offset
+    ): UsersDTO {
+        return $this->api->search($filters, $orderBy, $order, $limit, $offset);
     }
 }

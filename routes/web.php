@@ -19,4 +19,4 @@ Route::get('/', static function ()
     return view('welcome');
 });
 
-Route::get('/health-check', [HealthCheckActionController::class, '__invoke']);
+Route::get('/health-check', HealthCheckActionController::class);

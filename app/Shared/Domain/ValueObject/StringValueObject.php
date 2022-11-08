@@ -6,9 +6,10 @@ namespace App\Shared\Domain\ValueObject;
 
 use App\Shared\Domain\Service\FakerService;
 
+/** @phpstan-consistent-constructor */
 abstract class StringValueObject
 {
-    final public function __construct(
+    public function __construct(
         protected string $value,
     ) {
     }
