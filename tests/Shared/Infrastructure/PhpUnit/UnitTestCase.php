@@ -10,9 +10,10 @@ use App\Shared\Domain\Bus\Event\EventBusInterface;
 use App\Shared\Domain\Bus\Query\QueryBusInterface;
 use App\Shared\Domain\Bus\Query\QueryInterface;
 use App\Users\Application\DTO\UserDTO;
+use DG\BypassFinals;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 abstract class UnitTestCase extends TestCase
 {
@@ -26,6 +27,11 @@ abstract class UnitTestCase extends TestCase
 
     protected function setUp(): void
     {
+        BypassFinals::setWhitelist([
+            '*/src/*',
+        ]);
+        BypassFinals::setCacheDirectory(__DIR__ . '/../../../../.cache');
+        BypassFinals::enable();
         parent::setUp();
         $this->prophet = new Prophet();
     }

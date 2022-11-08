@@ -104,7 +104,7 @@
                         return $instance->setBasePath($basePath);
         }
                     /**
-         * Get the path to the application "src" directory.
+         * Get the path to the application "app" directory.
          *
          * @param string $path
          * @return string 
@@ -1560,7 +1560,7 @@
          */ 
         public static function handle($input, $output = null)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->handle($input, $output);
         }
                     /**
@@ -1573,7 +1573,7 @@
          */ 
         public static function terminate($input, $status)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         $instance->terminate($input, $status);
         }
                     /**
@@ -1586,7 +1586,7 @@
          */ 
         public static function whenCommandLifecycleIsLongerThan($threshold, $handler)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         $instance->whenCommandLifecycleIsLongerThan($threshold, $handler);
         }
                     /**
@@ -1597,7 +1597,7 @@
          */ 
         public static function commandStartedAt()
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->commandStartedAt();
         }
                     /**
@@ -1610,7 +1610,7 @@
          */ 
         public static function command($signature, $callback)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->command($signature, $callback);
         }
                     /**
@@ -1622,7 +1622,7 @@
          */ 
         public static function registerCommand($command)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         $instance->registerCommand($command);
         }
                     /**
@@ -1637,7 +1637,7 @@
          */ 
         public static function call($command, $parameters = [], $outputBuffer = null)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->call($command, $parameters, $outputBuffer);
         }
                     /**
@@ -1650,7 +1650,7 @@
          */ 
         public static function queue($command, $parameters = [])
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->queue($command, $parameters);
         }
                     /**
@@ -1661,7 +1661,7 @@
          */ 
         public static function all()
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->all();
         }
                     /**
@@ -1672,7 +1672,7 @@
          */ 
         public static function output()
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         return $instance->output();
         }
                     /**
@@ -1683,7 +1683,7 @@
          */ 
         public static function bootstrap()
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         $instance->bootstrap();
         }
                     /**
@@ -1695,7 +1695,7 @@
          */ 
         public static function setArtisan($artisan)
         {            //Method inherited from \Illuminate\Foundation\Console\Kernel         
-                        /** @var \App\Console\Kernel $instance */
+                        /** @var \Apps\LaravelApp\Console\Kernel $instance */
                         $instance->setArtisan($artisan);
         }
          
@@ -5044,7 +5044,7 @@
          * @static 
          */ 
         public static function useDefaultQueryGrammar()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->useDefaultQueryGrammar();
         }
@@ -5055,7 +5055,7 @@
          * @static 
          */ 
         public static function useDefaultSchemaGrammar()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->useDefaultSchemaGrammar();
         }
@@ -5066,7 +5066,7 @@
          * @static 
          */ 
         public static function useDefaultPostProcessor()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->useDefaultPostProcessor();
         }
@@ -5079,7 +5079,7 @@
          * @static 
          */ 
         public static function table($table, $as = null)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->table($table, $as);
         }
@@ -5090,7 +5090,7 @@
          * @static 
          */ 
         public static function query()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->query();
         }
@@ -5104,7 +5104,7 @@
          * @static 
          */ 
         public static function selectOne($query, $bindings = [], $useReadPdo = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->selectOne($query, $bindings, $useReadPdo);
         }
@@ -5119,7 +5119,7 @@
          * @static 
          */ 
         public static function scalar($query, $bindings = [], $useReadPdo = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->scalar($query, $bindings, $useReadPdo);
         }
@@ -5132,7 +5132,7 @@
          * @static 
          */ 
         public static function selectFromWriteConnection($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->selectFromWriteConnection($query, $bindings);
         }
@@ -5146,7 +5146,7 @@
          * @static 
          */ 
         public static function select($query, $bindings = [], $useReadPdo = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->select($query, $bindings, $useReadPdo);
         }
@@ -5160,7 +5160,7 @@
          * @static 
          */ 
         public static function cursor($query, $bindings = [], $useReadPdo = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->cursor($query, $bindings, $useReadPdo);
         }
@@ -5173,7 +5173,7 @@
          * @static 
          */ 
         public static function insert($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->insert($query, $bindings);
         }
@@ -5186,7 +5186,7 @@
          * @static 
          */ 
         public static function update($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->update($query, $bindings);
         }
@@ -5199,7 +5199,7 @@
          * @static 
          */ 
         public static function delete($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->delete($query, $bindings);
         }
@@ -5212,7 +5212,7 @@
          * @static 
          */ 
         public static function statement($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->statement($query, $bindings);
         }
@@ -5225,7 +5225,7 @@
          * @static 
          */ 
         public static function affectingStatement($query, $bindings = [])
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->affectingStatement($query, $bindings);
         }
@@ -5237,7 +5237,7 @@
          * @static 
          */ 
         public static function unprepared($query)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->unprepared($query);
         }
@@ -5249,7 +5249,7 @@
          * @static 
          */ 
         public static function pretend($callback)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->pretend($callback);
         }
@@ -5262,7 +5262,7 @@
          * @static 
          */ 
         public static function bindValues($statement, $bindings)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->bindValues($statement, $bindings);
         }
@@ -5274,7 +5274,7 @@
          * @static 
          */ 
         public static function prepareBindings($bindings)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->prepareBindings($bindings);
         }
@@ -5288,7 +5288,7 @@
          * @static 
          */ 
         public static function logQuery($query, $bindings, $time = null)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->logQuery($query, $bindings, $time);
         }
@@ -5301,7 +5301,7 @@
          * @static 
          */ 
         public static function whenQueryingForLongerThan($threshold, $handler)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->whenQueryingForLongerThan($threshold, $handler);
         }
@@ -5312,7 +5312,7 @@
          * @static 
          */ 
         public static function allowQueryDurationHandlersToRunAgain()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->allowQueryDurationHandlersToRunAgain();
         }
@@ -5323,7 +5323,7 @@
          * @static 
          */ 
         public static function totalQueryDuration()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->totalQueryDuration();
         }
@@ -5334,7 +5334,7 @@
          * @static 
          */ 
         public static function resetTotalQueryDuration()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->resetTotalQueryDuration();
         }
@@ -5346,7 +5346,7 @@
          * @static 
          */ 
         public static function beforeExecuting($callback)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->beforeExecuting($callback);
         }
@@ -5358,7 +5358,7 @@
          * @static 
          */ 
         public static function listen($callback)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->listen($callback);
         }
@@ -5370,7 +5370,7 @@
          * @static 
          */ 
         public static function raw($value)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->raw($value);
         }
@@ -5381,7 +5381,7 @@
          * @static 
          */ 
         public static function hasModifiedRecords()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->hasModifiedRecords();
         }
@@ -5393,7 +5393,7 @@
          * @static 
          */ 
         public static function recordsHaveBeenModified($value = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->recordsHaveBeenModified($value);
         }
@@ -5405,7 +5405,7 @@
          * @static 
          */ 
         public static function setRecordModificationState($value)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setRecordModificationState($value);
         }
@@ -5416,7 +5416,7 @@
          * @static 
          */ 
         public static function forgetRecordModificationState()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->forgetRecordModificationState();
         }
@@ -5428,7 +5428,7 @@
          * @static 
          */ 
         public static function useWriteConnectionWhenReading($value = true)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->useWriteConnectionWhenReading($value);
         }
@@ -5439,7 +5439,7 @@
          * @static 
          */ 
         public static function isDoctrineAvailable()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->isDoctrineAvailable();
         }
@@ -5452,7 +5452,7 @@
          * @static 
          */ 
         public static function getDoctrineColumn($table, $column)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getDoctrineColumn($table, $column);
         }
@@ -5463,7 +5463,7 @@
          * @static 
          */ 
         public static function getDoctrineSchemaManager()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getDoctrineSchemaManager();
         }
@@ -5474,7 +5474,7 @@
          * @static 
          */ 
         public static function getDoctrineConnection()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getDoctrineConnection();
         }
@@ -5485,7 +5485,7 @@
          * @static 
          */ 
         public static function getPdo()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getPdo();
         }
@@ -5496,7 +5496,7 @@
          * @static 
          */ 
         public static function getRawPdo()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getRawPdo();
         }
@@ -5507,7 +5507,7 @@
          * @static 
          */ 
         public static function getReadPdo()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getReadPdo();
         }
@@ -5518,7 +5518,7 @@
          * @static 
          */ 
         public static function getRawReadPdo()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getRawReadPdo();
         }
@@ -5530,7 +5530,7 @@
          * @static 
          */ 
         public static function setPdo($pdo)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setPdo($pdo);
         }
@@ -5542,7 +5542,7 @@
          * @static 
          */ 
         public static function setReadPdo($pdo)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setReadPdo($pdo);
         }
@@ -5553,7 +5553,7 @@
          * @static 
          */ 
         public static function getName()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getName();
         }
@@ -5564,7 +5564,7 @@
          * @static 
          */ 
         public static function getNameWithReadWriteType()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getNameWithReadWriteType();
         }
@@ -5576,7 +5576,7 @@
          * @static 
          */ 
         public static function getConfig($option = null)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getConfig($option);
         }
@@ -5587,7 +5587,7 @@
          * @static 
          */ 
         public static function getDriverName()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getDriverName();
         }
@@ -5598,7 +5598,7 @@
          * @static 
          */ 
         public static function getQueryGrammar()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getQueryGrammar();
         }
@@ -5610,7 +5610,7 @@
          * @static 
          */ 
         public static function setQueryGrammar($grammar)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setQueryGrammar($grammar);
         }
@@ -5621,7 +5621,7 @@
          * @static 
          */ 
         public static function getSchemaGrammar()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getSchemaGrammar();
         }
@@ -5633,7 +5633,7 @@
          * @static 
          */ 
         public static function setSchemaGrammar($grammar)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setSchemaGrammar($grammar);
         }
@@ -5644,7 +5644,7 @@
          * @static 
          */ 
         public static function getPostProcessor()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getPostProcessor();
         }
@@ -5656,7 +5656,7 @@
          * @static 
          */ 
         public static function setPostProcessor($processor)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setPostProcessor($processor);
         }
@@ -5667,7 +5667,7 @@
          * @static 
          */ 
         public static function getEventDispatcher()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getEventDispatcher();
         }
@@ -5679,7 +5679,7 @@
          * @static 
          */ 
         public static function setEventDispatcher($events)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setEventDispatcher($events);
         }
@@ -5690,7 +5690,7 @@
          * @static 
          */ 
         public static function unsetEventDispatcher()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->unsetEventDispatcher();
         }
@@ -5702,7 +5702,7 @@
          * @static 
          */ 
         public static function setTransactionManager($manager)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setTransactionManager($manager);
         }
@@ -5713,7 +5713,7 @@
          * @static 
          */ 
         public static function unsetTransactionManager()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->unsetTransactionManager();
         }
@@ -5724,7 +5724,7 @@
          * @static 
          */ 
         public static function pretending()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->pretending();
         }
@@ -5735,7 +5735,7 @@
          * @static 
          */ 
         public static function getQueryLog()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getQueryLog();
         }
@@ -5746,7 +5746,7 @@
          * @static 
          */ 
         public static function flushQueryLog()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->flushQueryLog();
         }
@@ -5757,7 +5757,7 @@
          * @static 
          */ 
         public static function enableQueryLog()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->enableQueryLog();
         }
@@ -5768,7 +5768,7 @@
          * @static 
          */ 
         public static function disableQueryLog()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->disableQueryLog();
         }
@@ -5779,7 +5779,7 @@
          * @static 
          */ 
         public static function logging()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->logging();
         }
@@ -5790,7 +5790,7 @@
          * @static 
          */ 
         public static function getDatabaseName()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getDatabaseName();
         }
@@ -5802,7 +5802,7 @@
          * @static 
          */ 
         public static function setDatabaseName($database)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setDatabaseName($database);
         }
@@ -5814,7 +5814,7 @@
          * @static 
          */ 
         public static function setReadWriteType($readWriteType)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setReadWriteType($readWriteType);
         }
@@ -5825,7 +5825,7 @@
          * @static 
          */ 
         public static function getTablePrefix()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->getTablePrefix();
         }
@@ -5837,7 +5837,7 @@
          * @static 
          */ 
         public static function setTablePrefix($prefix)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->setTablePrefix($prefix);
         }
@@ -5849,7 +5849,7 @@
          * @static 
          */ 
         public static function withTablePrefix($grammar)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->withTablePrefix($grammar);
         }
@@ -5862,7 +5862,7 @@
          * @static 
          */ 
         public static function resolverFor($driver, $callback)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         \Illuminate\Database\PostgresConnection::resolverFor($driver, $callback);
         }
                     /**
@@ -5873,7 +5873,7 @@
          * @static 
          */ 
         public static function getResolver($driver)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         return \Illuminate\Database\PostgresConnection::getResolver($driver);
         }
                     /**
@@ -5886,7 +5886,7 @@
          * @static 
          */ 
         public static function transaction($callback, $attempts = 1)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->transaction($callback, $attempts);
         }
@@ -5898,7 +5898,7 @@
          * @static 
          */ 
         public static function beginTransaction()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->beginTransaction();
         }
@@ -5910,7 +5910,7 @@
          * @static 
          */ 
         public static function commit()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->commit();
         }
@@ -5923,7 +5923,7 @@
          * @static 
          */ 
         public static function rollBack($toLevel = null)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->rollBack($toLevel);
         }
@@ -5934,7 +5934,7 @@
          * @static 
          */ 
         public static function transactionLevel()
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         return $instance->transactionLevel();
         }
@@ -5947,7 +5947,7 @@
          * @static 
          */ 
         public static function afterCommit($callback)
-        {            //Method inherited from \Illuminate\database\Connection         
+        {            //Method inherited from \Illuminate\Database\Connection         
                         /** @var \Illuminate\Database\PostgresConnection $instance */
                         $instance->afterCommit($callback);
         }
@@ -13630,7 +13630,7 @@
          * @static 
          */ 
         public static function defaultStringLength($length)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         \Illuminate\Database\Schema\PostgresBuilder::defaultStringLength($length);
         }
                     /**
@@ -13642,7 +13642,7 @@
          * @static 
          */ 
         public static function defaultMorphKeyType($type)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         \Illuminate\Database\Schema\PostgresBuilder::defaultMorphKeyType($type);
         }
                     /**
@@ -13652,7 +13652,7 @@
          * @static 
          */ 
         public static function morphUsingUuids()
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         \Illuminate\Database\Schema\PostgresBuilder::morphUsingUuids();
         }
                     /**
@@ -13662,7 +13662,7 @@
          * @static 
          */ 
         public static function morphUsingUlids()
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         \Illuminate\Database\Schema\PostgresBuilder::morphUsingUlids();
         }
                     /**
@@ -13674,7 +13674,7 @@
          * @static 
          */ 
         public static function hasColumn($table, $column)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->hasColumn($table, $column);
         }
@@ -13687,7 +13687,7 @@
          * @static 
          */ 
         public static function hasColumns($table, $columns)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->hasColumns($table, $columns);
         }
@@ -13701,7 +13701,7 @@
          * @static 
          */ 
         public static function whenTableHasColumn($table, $column, $callback)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->whenTableHasColumn($table, $column, $callback);
         }
@@ -13715,7 +13715,7 @@
          * @static 
          */ 
         public static function whenTableDoesntHaveColumn($table, $column, $callback)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->whenTableDoesntHaveColumn($table, $column, $callback);
         }
@@ -13728,7 +13728,7 @@
          * @static 
          */ 
         public static function getColumnType($table, $column)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->getColumnType($table, $column);
         }
@@ -13741,7 +13741,7 @@
          * @static 
          */ 
         public static function table($table, $callback)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->table($table, $callback);
         }
@@ -13754,7 +13754,7 @@
          * @static 
          */ 
         public static function create($table, $callback)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->create($table, $callback);
         }
@@ -13766,7 +13766,7 @@
          * @static 
          */ 
         public static function drop($table)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->drop($table);
         }
@@ -13778,7 +13778,7 @@
          * @static 
          */ 
         public static function dropIfExists($table)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->dropIfExists($table);
         }
@@ -13791,7 +13791,7 @@
          * @static 
          */ 
         public static function dropColumns($table, $columns)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->dropColumns($table, $columns);
         }
@@ -13804,7 +13804,7 @@
          * @static 
          */ 
         public static function rename($from, $to)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->rename($from, $to);
         }
@@ -13815,7 +13815,7 @@
          * @static 
          */ 
         public static function enableForeignKeyConstraints()
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->enableForeignKeyConstraints();
         }
@@ -13826,7 +13826,7 @@
          * @static 
          */ 
         public static function disableForeignKeyConstraints()
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->disableForeignKeyConstraints();
         }
@@ -13837,7 +13837,7 @@
          * @static 
          */ 
         public static function getConnection()
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->getConnection();
         }
@@ -13849,7 +13849,7 @@
          * @static 
          */ 
         public static function setConnection($connection)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         return $instance->setConnection($connection);
         }
@@ -13861,7 +13861,7 @@
          * @static 
          */ 
         public static function blueprintResolver($resolver)
-        {            //Method inherited from \Illuminate\database\Schema\Builder         
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
                         $instance->blueprintResolver($resolver);
         }

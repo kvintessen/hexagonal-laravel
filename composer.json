@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
+        "dg/bypass-finals": "^1.4",
         "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "^3.12",
         "laravel/pint": "^1.0",
@@ -24,7 +25,7 @@
         "nunomaduro/collision": "^6.1",
         "nunomaduro/larastan": "^2.2",
         "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5.10",
+        "phpunit/phpunit": "^9.5",
         "qossmic/deptrac-shim": "^0.24.0",
         "roave/security-advisories": "dev-latest",
         "spatie/laravel-ignition": "^1.0"

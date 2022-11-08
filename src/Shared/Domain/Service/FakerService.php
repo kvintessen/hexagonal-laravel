@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Service;
 
+use Faker\Factory;
 use Illuminate\Support\Str;
 
 final class FakerService
@@ -25,21 +26,21 @@ final class FakerService
 
     private static function uuid(): string
     {
-        return fake()->unique()->uuid();
+        return Factory::create()->unique()->uuid(); 
     }
 
     private static function login(): string
     {
-        return fake()->unique()->firstName();
+        return Factory::create()->unique()->firstName();
     }
 
     private static function email(): string
     {
-        return fake()->unique()->safeEmail();
+        return Factory::create()->unique()->safeEmail();
     }
 
     private static function password(): string
     {
-        return fake()->password();
+        return Factory::create()->password();
     }
 }

@@ -8,6 +8,6 @@ final class HashService
 {
     public static function hash(string $value): string
     {
-        return bcrypt($value);
+        return password_hash($value, PASSWORD_DEFAULT );
     }
 }

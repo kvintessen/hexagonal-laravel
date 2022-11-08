@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\Users\Infrastructure\Controller;
+namespace Apps\LaravelApp\Tests\Feature\Http\Controllers\Users;
 
+use Apps\LaravelApp\Tests\TestCase;
 use JsonException;
 use Tests\Users\Domain\Entity\UserEntityMother;
-use Tests\Users\Infrastructure\UserModuleUnitTestCase;
 
-class GetMeActionTest extends UserModuleUnitTestCase
+class GetMeActionTest extends TestCase
 {
     /**
      * @throws JsonException
