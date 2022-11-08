@@ -67,6 +67,7 @@ final class DbUserRepository implements UserRepositoryInterface
         );
 
         $users = $eloquentUsers->map(
+            // @phpstan-ignore-next-line
             static function (UserModel $userModel)
             {
                 return UserMapper::mapToDomain($userModel);

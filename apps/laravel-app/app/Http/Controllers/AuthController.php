@@ -91,6 +91,7 @@ final class AuthController extends Controller
             'status' => 'success',
             'user' => $user,
             'authorisation' => [
+                // @phpstan-ignore-next-line
                 'token' => Auth::refresh(),
                 'type' => 'bearer',
             ],
