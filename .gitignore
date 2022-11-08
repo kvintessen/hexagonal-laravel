@@ -1,7 +1,7 @@
 /node_modules
-/public/build
-/public/hot
-/public/storage
+/apps/laravel-app/public/build
+/apps/laravel-app/public/hot
+/apps/laravel-app/public/storage
 /storage/*.key
 /vendor
 .env

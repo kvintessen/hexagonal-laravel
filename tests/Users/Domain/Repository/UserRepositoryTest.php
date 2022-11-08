@@ -8,7 +8,7 @@ use App\Users\Domain\Entity\UserEntity;
 use App\Users\Domain\Repository\UserRepositoryInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
-use Tests\TestCase;
+use TestCase;
 use Tests\Users\Domain\Entity\UserEntityMother;
 
 class UserRepositoryTest extends TestCase

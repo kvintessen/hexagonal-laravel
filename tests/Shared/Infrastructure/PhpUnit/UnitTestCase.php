@@ -12,7 +12,7 @@ use App\Shared\Domain\Bus\Query\QueryInterface;
 use App\Users\Application\DTO\UserDTO;
 use Prophecy\Prophecy\ObjectProphecy;
 use Prophecy\Prophet;
-use Tests\TestCase;
+use TestCase;
 
 abstract class UnitTestCase extends TestCase
 {
